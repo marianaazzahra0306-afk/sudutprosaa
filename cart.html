@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang | Sudut Prosa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cart-page">
+<header>
+<nav class="navbar">
+<h2 class="logo">📚 Sudut Prosa</h2>
+<ul class="menu">
+<li><a href="index.html">Beranda</a></li>
+<li><a href="index.html#produk">Produk</a></li>
+<li><a href="checkout.html">Checkout</a></li>
+</ul>
+</nav>
+</header>
+<section class="cart-container">
+<h1>🛒 Keranjang Belanja</h1>
+<div id="cart-items"></div>
+<div class="cart-footer">
+<h2 id="total">Total : Rp 0</h2>
+<button class="checkout-btn" onclick="goCheckout()">
+Lanjut ke Checkout →
+</button>
+</div>
+</section>
+<script src="cart.js"></script>
+</body>
+</html>

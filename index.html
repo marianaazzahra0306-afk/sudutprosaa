@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudut Prosa | Toko Buku Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<nav class="navbar">
+<h2 class="logo">📚 Sudut Prosa</h2>
+<ul class="menu">
+<li><a href="#">Beranda</a></li>
+<li><a href="#produk">Produk</a></li>
+<li><a href="#tentang">Tentang</a></li>
+</ul>
+<button id="cartBtn">
+<i class="ri-shopping-cart-line"></i>
+Keranjang
+<span id="cartCount">0</span>
+</button>
+</nav>
+</header>
+<section class="hero">
+<div class="hero-text">
+<h1>Selamat Datang di <br> Sudut Prosa</h1>
+<p>
+Temukan berbagai novel dan buku self improvement pilihan dengan harga terbaik.
+</p>
+<a href="#produk" class="btn-hero">
+Belanja Sekarang
+</a>
+</div>
+</section>
+<section class="search-box">
+<input
+type="text"
+id="search"
+placeholder="🔍 Cari Buku...">
+<select id="filter">
+<option value="all">Semua Kategori</option>
+<option value="Novel">Novel</option>
+<option value="Self Improvement">Self Improvement</option>
+</select>
+</section>
+<section id="produk">
+<h2>Produk Kami</h2>
+<div class="products">
+<div class="card-produk">
+<img src= "gambar/bandung after rain.jpeg" alt="Bandung After Rain">
+<h3>Bandung After Rain</h3>
+<p class="harga">Rp 88.000</p>
+<button class="btn-desc"
+onclick="showDescription('Bandung After Rain')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="1"
+data-name="Bandung After Rain"
+data-price="88000"
+data-category="Novel"
+data-image="gambar/bandung after rain.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/berdamai dengan diri sendiri.jpeg" alt="Berdamai Dengan Diri Sendiri">
+<h3>Berdamai Dengan Diri Sendiri</h3>
+<p class="harga">Rp 90.000</p>
+<button class="btn-desc"
+onclick="showDescription('Berdamai Dengan Diri Sendiri')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="2"
+data-name="Berdamai Dengan Diri Sendiri"
+data-price="90000"
+data-category="Self Improvement"
+data-image="gambar/berdamai dengan diri sendiri.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/berandal bandung.jpeg" alt="Berandal Bandung">
+<h3>Berandal Bandung</h3>
+<p class="harga">Rp 89.000</p>
+<button class="btn-desc"
+onclick="showDescription('Berandal Bandung')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="3"
+data-name="Berandal Bandung"
+data-price="89000"
+data-category="Novel"
+data-image="gambar/berandal bandung.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/cantik itu luka.jpeg" alt="Cantik Itu Luka">
+<h3>Cantik Itu Luka</h3>
+<p class="harga">Rp 99.000</p>
+<button class="btn-desc"
+onclick="showDescription('Cantik Itu Luka')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="4"
+data-name="Cantik Itu Luka"
+data-price="99000"
+data-category="Novel"
+data-image="gambar/cantik itu luka.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/filosofi teras.jpeg" alt="Filosofi Teras">
+<h3>Filosofi Teras</h3>
+<p class="harga">Rp 90.000</p>
+<button class="btn-desc"
+onclick="showDescription('Filosofi Teras')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="5"
+data-name="Filosofi Teras"
+data-price="90000"
+data-category="Self Improvement"
+data-image="gambar/filosofi teras.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/gadis fahri.jpeg" alt="Gadis Fahri">
+<h3>Gadis Fahri</h3>
+<p class="harga">Rp 84.000</p>
+<button class="btn-desc"
+onclick="showDescription('Gadis Fahri')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="6"
+data-name="Gadis Fahri"
+data-price="84000"
+data-category="Novel"
+data-image="gambar/gadis fahri.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/hidup damai tanpa berpikir berlebihan.jpeg" alt="Hidup Damai Tanpa Berpikir Berlebihan">
+<h3>Hidup Damai Tanpa Berpikir Berlebihan</h3>
+<p class="harga">Rp 85.000</p>
+<button class="btn-desc"
+onclick="showDescription('Hidup Damai Tanpa Berpikir Berlebihan')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="7"
+data-name="Hidup Damai Tanpa Berpikir Berlebihan"
+data-price="85000"
+data-category="Self Improvement"
+data-image="gambar/hidup damai tanpa berpikir berlebihan.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/jika kita tak pernah jadi apa apa.jpeg" alt="Jika Kita Tak Pernah Jadi Apa-Apa">
+<h3>Jika Kita Tak Pernah Jadi Apa-Apa</h3>
+<p class="harga">Rp 86.000</p>
+<button class="btn-desc"
+onclick="showDescription('Jika Kita Tak Pernah Jadi Apa-Apa')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="8"
+data-name="Jika Kita Tak Pernah Jadi Apa-Apa"
+data-price="86000"
+data-category="Self Improvement"
+data-image="gambar/jika kita tak pernah jadi apa apa.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/laut bercerita.jpeg" alt="Laut Bercerita">
+<h3>Laut Bercerita</h3>
+<p class="harga">Rp 105.000</p>
+<button class="btn-desc"
+onclick="showDescription('Laut Bercerita')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="9"
+data-name="Laut Bercerita"
+data-price="105000"
+data-category="Novel"
+data-image="gambar/laut bercerita.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/malioboro at midnight.jpeg" alt="Malioboro At Midnight">
+<h3>Malioboro At Midnight</h3>
+<p class="harga">Rp 90.000</p>
+<button class="btn-desc"
+onclick="showDescription('Malioboro At Midnight')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="10"
+data-name="Malioboro At Midnight"
+data-price="90000"
+data-category="Novel"
+data-image="gambar/malioboro at midnight.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/perempuan yang menangis kepada bulan hitam.jpeg" alt="Perempuan yang Menangis Kepada Bulan Hitam">
+<h3>Perempuan yang Menangis Kepada Bulan Hitam</h3>
+<p class="harga">Rp 87.000</p>
+<button class="btn-desc"
+onclick="showDescription('Perempuan yang Menangis Kepada Bulan Hitam')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="11"
+data-name="Perempuan yang Menangis Kepada Bulan Hitam"
+data-price="87000"
+data-category="Novel"
+data-image="gambar/perempuan yang menangis kepada bulan hitam.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<div class="card-produk">
+<img src="gambar/tulus untuk orang yang salah.jpeg" alt="Tulus Untuk Orang yang Salah">
+<h3>Tulus Untuk Orang yang Salah</h3>
+<p class="harga">Rp 95.000</p>
+<button class="btn-desc"
+onclick="showDescription('Tulus Untuk Orang yang Salah')">
+📖 Deskripsi
+</button>
+<button
+class="btn-cart"
+data-id="12"
+data-name="Tulus Untuk Orang yang Salah"
+data-price="95000"
+data-category="Novel"
+data-image="gambar/tulus untuk orang yang salah.jpeg">
+<i class="ri-shopping-cart-line"></i>
+Masuk Keranjang
+</button>
+</div>
+<section id="tentang">
+    <h2>Tentang Sudut Prosa</h2>
+    <p>
+        Sudut Prosa merupakan toko buku online yang menyediakan berbagai koleksi
+        novel dan buku self improvement dengan harga terjangkau. Kami ingin
+        membantu para pecinta buku menemukan bacaan favoritnya dengan mudah,
+        nyaman, dan aman.
+    </p>
+</section>
+<footer>
+    <p><b>Instagram :</b> @SudutProsa_</p>
+    <p><b>Email :</b> SudutProsa@gmail.com</p>
+    <p><b>WhatsApp :</b> 088130050206</p>
+    <p>© 2026 Sudut Prosa | Toko Buku Online</p>
+</footer>
+<div id="descPopup" class="desc-popup">
+    <div class="desc-content">
+        <span class="close-popup" onclick="closeDescription()">
+            &times;
+        </span>
+        <h2 id="popupTitle"></h2>
+        <div id="popupText"></div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

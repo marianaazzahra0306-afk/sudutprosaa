@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Sudut Prosa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+<div class="logo">
+📚 Sudut Prosa
+</div>
+<nav class="menu">
+<a href="index.html">
+Beranda
+</a>
+<a href="cart.html">
+Keranjang
+</a>
+</nav>
+</header>
+<section class="checkout">
+<div class="checkout-container">
+<div class="checkout-form">
+<h2>
+Data Penerima
+</h2>
+<form id="checkoutForm">
+<div class="form-group">
+<label>
+Nama Lengkap
+</label>
+<input 
+type="text"
+id="customerName"
+placeholder="Masukkan nama lengkap"
+required>
+</div>
+<div class="form-group">
+<label>
+Nomor WhatsApp
+</label>
+<input
+type="tel"
+id="customerPhone"
+placeholder="08xxxxxxxxxx"
+required>
+</div>
+<div class="form-group">
+<label>
+Alamat Lengkap
+</label>
+<textarea
+id="customerAddress"
+rows="4"
+placeholder="Masukkan alamat lengkap"
+required></textarea>
+</div>
+<div class="form-group">
+<label>
+Catatan (Opsional)
+</label>
+<textarea
+id="customerNote"
+rows="3"
+placeholder="Contoh: Rumah pagar hitam"></textarea>
+</div>
+<div class="payment-box">
+<h2>
+Metode Pembayaran
+</h2>
+<div class="payment-item">
+<label>
+<input
+type="radio"
+name="payment"
+value="qris"
+checked>
+💜 QRIS DANA
+</label>
+</div>
+<div class="payment-item">
+<label>
+<input
+type="radio"
+name="payment"
+value="bank">
+🏦 Transfer Bank
+</label>
+</div>
+<div class="payment-item">
+<label>
+<input
+type="radio"
+name="payment"
+value="cod">
+🚚 COD (Bayar di Tempat)
+</label>
+</div>
+<div id="paymentDetail" class="payment-detail">
+<div class="payment-info">
+<h3>
+💜 QRIS DANA
+</h3>
+<button
+type="button"
+class="pay-btn"
+onclick="openQris()">
+Lihat QRIS
+</button>
+</div>
+</div>
+</div>
+<div class="shipping-box">
+<h2>
+Metode Pengiriman
+</h2>
+<select id="shipping" required>
+<option value="">
+Pilih Pengiriman
+</option>
+<option value="JNE" data-price="12000">
+🚚 JNE - Rp12.000
+</option>
+<option value="J&T Express" data-price="10000">
+🚚 J&T Express - Rp10.000
+</option>
+<option value="SiCepat" data-price="11000">
+🚚 SiCepat - Rp11.000
+</option>
+<option value="AnterAja" data-price="9000">
+🚚 AnterAja - Rp9.000
+</option>
+</select>
+</div>
+<button
+type="submit"
+class="pay-btn">
+Buat Pesanan
+</button>
+</form>
+</div>
+<div class="checkout-summary">
+<h2>
+Ringkasan Pesanan
+</h2>
+<div id="checkoutItems"></div>
+<hr>
+<div class="summary-total">
+<span>
+Total
+</span>
+<span id="checkoutTotal">
+Rp 0
+</span>
+</div>
+<hr>
+<div class="order-detail shipping-summary">
+<h3>
+📦 Detail Pengiriman
+</h3>
+<div class="summary-line">
+<span>
+Nama
+</span>
+<b id="summaryName">
+-
+</b>
+</div>
+<div class="summary-line">
+<span>
+No HP
+</span>
+<b id="summaryPhone">
+-
+</b>
+</div>
+<div class="summary-line">
+<span>
+Alamat
+</span>
+<b id="summaryAddress">
+-
+</b>
+</div>
+<div class="summary-line">
+<span>
+Kurir
+</span>
+<b id="summaryShipping">
+-
+</b>
+</div>
+<div class="summary-line">
+<span>
+Ongkir
+</span>
+<b id="shippingCost">
+Rp 0
+</b>
+</div>
+</div>
+<div class="order-detail">
+<h3>
+💳 Pembayaran
+</h3>
+<p>
+Metode :
+<span id="summaryPayment">
+QRIS DANA
+</span>
+</p>
+<p id="summaryBank">
+</p>
+</div>
+</div>
+</div>
+</section>
+<div id="qrisPopup" class="desc-popup">
+<div class="desc-content qris-content">
+<span class="close-popup" onclick="closeQris()">
+&times;
+</span>
+<h2>
+💜 QRIS DANA
+</h2>
+<img
+src="gambar/QR DANA.jpeg"
+alt="QRIS DANA">
+<p>
+Silakan scan QR berikut untuk melakukan pembayaran.
+</p>
+<button
+type="button"
+class="pay-btn"
+onclick="simpanQris()">
+Simpan Pembayaran
+</button>
+</div>
+</div>
+<div id="bankPopup" class="desc-popup">
+<div class="desc-content bank-select-box">
+<span class="close-popup" onclick="closeBank()">
+&times;
+</span>
+<h2>
+🏦 Pilih Bank Transfer
+</h2>
+<p class="bank-subtitle">
+Pilih rekening tujuan pembayaran
+</p>
+<div class="bank-list">
+<div class="bank-card" onclick="pilihBank('BNI')">
+    <div class="bank-logo">
+        <img src="gambar/logo bni.png" alt="BNI">
+    </div>
+    <div class="bank-info">
+<h3>
+Bank BNI
+</h3>
+<p>
+Transfer melalui BNI
+</p>
+</div>
+<span>
+➜
+</span>
+</div>
+<div class="bank-card" onclick="pilihBank('Mandiri')">
+    <div class="bank-logo">
+        <img src="gambar/logo mandiri.png" alt="Mandiri">
+    </div>
+    <div class="bank-info">
+<h3>
+Bank Mandiri
+</h3>
+<p>
+Transfer melalui Mandiri
+</p>
+</div>
+<span>
+➜
+</span>
+</div>
+</div>
+</div>
+</div>
+<div id="bankDetailPopup" class="desc-popup">
+<div class="desc-content bank-detail-box">
+<span class="close-popup" onclick="closeBankDetail()">
+&times;
+</span>
+<h2 id="bankTitle">
+</h2>
+<p>
+No Rekening
+</p>
+<h1 id="rekening">
+</h1>
+<p>
+A.n. Sudut Prosa
+</p>
+<button
+type="button"
+class="pay-btn"
+onclick="lanjutBayar()">
+Simpan Pembayaran
+</button>
+</div>
+</div>
+<div id="successPopup" class="desc-popup">
+    <div class="desc-content invoice-box">
+        <h2>📚 Sudut Prosa</h2>
+        <p class="invoice-title">
+            Invoice Pesanan
+        </p>
+        <hr>
+        <div class="invoice-row">
+            <span>No Pesanan</span>
+            <b id="invoiceNumber">-</b>
+        </div>
+        <div class="invoice-row">
+            <span>Tanggal</span>
+            <b id="invoiceDate">-</b>
+        </div>
+        <hr>
+        <div class="invoice-row">
+            <span>Nama</span>
+            <b id="invoiceName">-</b>
+        </div>
+        <div class="invoice-row">
+            <span>No WhatsApp</span>
+            <b id="invoicePhone">-</b>
+        </div>
+        <div class="invoice-row">
+            <span>Alamat</span>
+            <b id="invoiceAddress">-</b>
+        </div>
+        <div class="invoice-row">
+            <span>Pengiriman</span>
+            <b id="invoiceShipping">-</b>
+        </div>
+        <div class="invoice-row">
+            <span>Pembayaran</span>
+            <b id="invoicePayment">-</b>
+        </div>
+        <hr>
+        <h3>📚 Daftar Pesanan</h3>
+        <div id="invoiceItems"></div>
+        <hr>
+        <div class="invoice-row">
+            <span>Subtotal</span>
+            <b id="invoiceSubtotal">Rp 0</b>
+        </div>
+        <div class="invoice-row">
+            <span>Ongkir</span>
+            <b id="invoiceOngkir">Rp 0</b>
+        </div>
+        <div class="invoice-row total">
+            <span>Total</span>
+            <b id="invoiceTotal">Rp 0</b>
+        </div>
+        <div class="invoice-success">
+            ✅ Pesanan Berhasil
+            <p>
+                Terima kasih telah berbelanja di
+                <b>Sudut Prosa</b> ❤️
+            </p>
+        </div>
+        <button
+type="button"
+class="pay-btn"
+onclick="printInvoice()">
+🖨 Cetak Invoice
+</button>
+<button
+id="finishOrder"
+class="pay-btn">
+🏠 Kembali ke Beranda
+</button>
+    </div>
+</div>
+<script src="checkout.js"></script>
+</body>
+</html>
